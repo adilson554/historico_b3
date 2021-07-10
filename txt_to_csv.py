@@ -1,0 +1,161 @@
+
+f=open('COTAHIST_A2020.TXT',"r")
+g = open('COTAHIST_A2020.csv','w')
+lines=f.readlines()
+result=[]
+for x in lines:
+    result.append(x)
+
+a = 0
+for i in result:
+	if a == 0:
+		g.write(
+		'TIPREG,DATAPR,CODBDI,CODNEG,TPMERC,NOMRES,ESPECI,PRAZOT,MODREF,PREABE,PREMAX,PREMIN,PREMED,PREULT,PREOFC,PREOFV,TOTNEG,QUATOT,VOLTOT,PREEXE,INDOPC,DATVEN,FATCOT,PTOEXE,CODISI,DISMES\n')
+		a = a+1
+	elif a < len(result)-1:
+		g.write(i[0:2]+','+
+i[2:10]+','+
+i[10:12]+','+
+i[12:24]+','+
+i[24:27]+','+
+i[27:39]+','+
+i[39:49]+','+
+i[49:52]+','+
+i[52:56]+','+
+i[56:69]+','+
+i[69:82]+','+
+i[82:95]+','+
+i[95:108]+','+
+i[108:121]+','+
+i[121:134]+','+
+i[134:147]+','+
+i[147:152]+','+
+i[152:170]+','+
+i[170:188]+','+
+i[188:201]+','+
+i[201:202]+','+
+i[202:210]+','+
+i[210:217]+','+
+i[217:230]+','+
+i[230:242]+','+
+i[242:245]+'\n')
+		a = a+1
+	elif a == len(result)-1:
+		print(len(result))
+		#g.write(i[0:2]+','+i[2:15]+','+i[15:23]+','+i[23:31]+','+i[31:42]+','+i[42:245]+'\n')
+		
+f.close()
+g.close()
+
+
+
+
+"""
+dados[dados["coluna"].str.contains("asdf")]
+datetimes = pd.to_datetime(dados["DATAPR"], format='%Y%m%d')
+"""
+
+"""
+TIPREG - TIPO DE REGISTRO								01,02
+DATAPR - DATA DO PREGÃO									03,10
+CODBDI - CÓDIGO BDI	(VER TABELA)						11,12
+CODNEG - CÓDIGO DE NEGOCIAÇÃO DO PAPEL					13,24
+TPMERC - TIPO DE MERCADO (VER TABELA)					25,27
+NOMRES - NOME RESUMIDO DA EMPRESA EMISSORA DO PAPEL		28,39
+ESPECI - ESPECIFICAÇÃO DO PAPEL (VER TABELA)			40,49
+PRAZOT - PRAZO EM DIAS DO MERCADO A TERMO				50,52
+MODREF - MOEDA DE REFERÊNCIA							53,56
+PREABE - PREÇO DE ABERTURA NO PAPEL NO PREGÃO			57,69
+PREMAX - PREÇO MÁXIMO DO PAPEL NO PREGÃO				70,82
+PREMIN - PREÇO MÍNIMO DO PAPEL NO PREGÃO				83,95
+['TIPREG','DATAPR','CODBDI','CODNEG','TPMERC','NOMRES','ESPECI','PRAZOT','MODREF','PREABE','PREMAX','PREMIN']
+i[0:2]+''+
+i[2:10]+''+
+i[10:12]+''+
+i[12:24]+''+
+i[24:27]+''+
+i[27:39]+''+
+i[39:49]+''+
+i[49:52]+''+
+i[52:56]+''+
+i[56:69]+''+
+i[69:82]+''+
+i[82:95]+''+
+
+
+PREMED - PREÇO MÉDIO DO PAPEL NO PREGÃO					96,108
+PREULT - PREÇO DO ÚLTIMO NÉGOCIO DO PAPEL NO PREGÃO		109,121
+PREOFC - PREÇO DA MELHOR OFERTA DE COMPRA DO PAPEL		122,134
+PREOFV - PREÇO DA MELHOR OFERTA DE VENDA DO PAPEL		135,147
+TOTNEG - NEG. NÚMERO DE NEGÓCIOS EFETUADOS NO PREGÃO	148,152
+QUATOT - QUANT TOTAL DE TÍTULOS NEGOCIADOS NO PREGÃO	153,170
+VOLTOT - VOLUME TOTAL DE TITULOS NEGOCIADOS NO PREGÃO	171,188
+PREEXE - PREÇO DE EXERCICIO DA OPÇÃO OU CONTRATO		189,201
+INDOPC - INDICADOR DE CORREÇÃO DE PREÇOS OPÇÃO (V.TAB)	202,202
+
+['TIPREG','DATAPR','CODBDI','CODNEG','TPMERC','NOMRES','ESPECI','PRAZOT','MODREF','PREABE','PREMAX','PREMIN'
+'PREMED','PREULT','PREOFC','PREOFV','TOTNEG','QUATOT','VOLTOT','PREEXE','INDOPC'
+]
+
+i[95:108]+''+
+i[108:121]+''+
+i[121:134]+''+
+i[134:147]+''+
+i[147:152]+''+
+i[152:170]+''+
+i[170:188]+''+
+i[188:201]+''+
+i[201:202]+''+
+
+DATVEN - DATA DO VENC PARA OPÇÃO OU TERMO				203,210
+FATCOT - FATOR DE COTAÇÃO DO PAPEL						211,217
+PTOEXE - PREÇO DE EXERCICIO EM PONTO PARA OPÇÕES		218,230
+CODISI - CÓDIGO DO PAPEL NO SISTEMA ISISN OU INTERNO	231,242
+DISMES - NÚMERO DE DISTRIBUIÇÃO DO PAPEL				243,245
+
+['TIPREG','DATAPR','CODBDI','CODNEG','TPMERC','NOMRES','ESPECI','PRAZOT','MODREF','PREABE','PREMAX','PREMIN',
+'PREMED','PREULT','PREOFC','PREOFV','TOTNEG','QUATOT','VOLTOT','PREEXE','INDOPC',
+'DATVEN','FATCOT','PTOEXE','CODISI','DISMES']
+
+i[202:210]+''+
+i[210:217]+''+
+i[217:230]+''+
+i[230:242]+''+
+i[242:245]+''+
+
+"""
+
+"""
+header
+
+TIPO DE REGISTRO						1,2
+NOME DO ARQUIVO							3,15
+CÓDIGO DA ORIGEM						16,23
+DATA DA GERAÇÃO DO ARQUIVO				24,31
+RESERVA									32,245
+
+i[0:2]+''+
+i[2:15]+''+
+i[15:23]+''+
+i[23:31]+''+
+i[31:245]+''+
+
+"""
+
+"""
+TIPO DE REGISTRO										01,02
+NOME DO ARQUIVO											03,15
+CÓDIGO DA ORIGEM										16,23
+DATA DA GERAÇÃO DO ARQUIVO								24,31
+TOTAL DE REGISTROS										32,42
+RESERVA													43,245
+
+i[0:2]+','+
+i[2:15]+','+
+i[15:23]+','+
+i[23:31]+','+
+i[31:42]+','+
+i[42:245]+'\n'
+
+"""
+
